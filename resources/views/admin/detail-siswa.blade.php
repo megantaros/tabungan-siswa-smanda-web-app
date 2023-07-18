@@ -333,24 +333,24 @@ active bg-gradient-info
             </div>
           </div>
           <div class="card-body px-0 pb-2">
-            <div class="table-responsive p-0">
+            <div class="table-responsive p-0" style="font-family: 'Montserrat', sans-serif;">
               <table class="table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr class="text-center">
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">No</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">NIS</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">Nama Siswa</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Kelas</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Keterangan</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Tanggal</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Nominal</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Aksi</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">No</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">NIS</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">Nama Siswa</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Kelas</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Keterangan</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Tanggal</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Nominal</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   {{-- <?php $no = 1 ?> --}}
                   @foreach($transaksi as $index => $siswa)
-                  <tr class="text-uppercase text-secondary text-sm font-weight-bolder opacity-8">
+                  <tr class="text-uppercase text-dark text-sm font-weight-bolder opacity-8">
                       <td class="text-center">{{ $index + $transaksi->firstItem() }}</td>
                       <td class="text-center">{{ $siswa->nis }}</td>
                       <td>{{ $siswa->nama_siswa }}</td>

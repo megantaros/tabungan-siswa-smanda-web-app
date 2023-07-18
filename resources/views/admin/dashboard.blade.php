@@ -51,12 +51,13 @@ active bg-gradient-info
             </div>
             <div class="text-end pt-1">
               <p class="text-sm mb-0 text-capitalize">Admin</p>
-              <h4 class="mb-0">{{ $total_admin }} Orang</h4>
+              <h4 class="mb-0">
+                {{ $total_admin }} Orang
+              </h4>
             </div>
           </div>
           <hr class="dark horizontal my-0">
-          <div class="card-footer p-3">
-            {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+          <div class="card-footer p-3 text-secondary text-sm">
           </div>
         </div>
       </div>
@@ -142,25 +143,25 @@ active bg-gradient-info
             </div>
           </div>
           <div class="card-body px-0 pb-2">
-            <div class="table-responsive p-0">
+            <div class="table-responsive p-0" style="font-family: 'Montserrat', sans-serif;">
               <table class="table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr class="text-center">
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">No</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">NIS</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">Nama Siswa</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">Tanggal Lahir</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Kelas</th>
-                    {{-- <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Jenis Kelamin</th> --}}
-                    {{-- <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Alamat</th> --}}
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Saldo</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder text-center">Aksi</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">No</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">NIS</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">Nama Siswa</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">Tanggal Lahir</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Kelas</th>
+                    {{-- <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Jenis Kelamin</th> --}}
+                    {{-- <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Alamat</th> --}}
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Saldo</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder text-center">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
                   @foreach($data as $siswa)
-                  <tr class="text-uppercase text-secondary text-sm font-weight-bolder opacity-8">
+                  <tr class="text-uppercase text-dark text-sm font-weight-bolder opacity-8">
                       <td class="text-center">{{ $no++ }}</td>
                       <td class="text-center">{{ $siswa->nis }}</td>
                       <td>{{ $siswa->nama_siswa }}</td>

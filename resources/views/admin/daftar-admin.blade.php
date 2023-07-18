@@ -66,23 +66,23 @@ active bg-gradient-info
             </div>
           </div>
           <div class="card-body px-0 pb-2">
-            <div class="table-responsive p-0">
+            <div class="table-responsive p-0" style="font-family: 'Montserrat', sans-serif;">
               <table class="table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr class="text-center">
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">No</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">Email</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">Username</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">Nama</th>
-                    <th class="text-uppercase text-secondary text-sm font-weight-bolder">Aksi</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">No</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">Email</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">Username</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">Nama</th>
+                    <th class="text-uppercase text-dark text-sm font-weight-bolder">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php $no = 1 ?>
                   @foreach($data as $admin)
-                  <tr class="text-secondary text-sm font-weight-bolder opacity-8">
+                  <tr class="text-dark text-sm font-weight-bolder opacity-8">
                       <td class="text-center">{{ $no++ }}</td>
-                      <td class="text-center">{{ $admin->email }}</td>
+                      <td class="text-left">{{ $admin->email }}</td>
                       <td class="text-center">{{ $admin->username }}</td>
                       <td class="text-uppercase">{{ $admin->nama_admin }}</td>
                       <td class="text-center">
