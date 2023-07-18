@@ -1,0 +1,184 @@
+@extends('layouts.admin')
+
+@section('tambah-siswa')
+active bg-gradient-info
+@endsection
+
+@section('content')
+<!-- Navbar -->
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tambah Siswa</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Tambah Siswa</h6>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            {{-- <div class="input-group input-group-outline">
+            <label class="form-label">Type here...</label>
+            <input type="text" class="form-control">
+            </div> --}}
+        </div>
+        <ul class="navbar-nav  justify-content-end">
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                </div>
+            </a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+                <a href="{{ route('admin.profil') }}" class="nav-link text-body font-weight-bold px-0">
+                  <i class="fa fa-user me-sm-1"></i>
+                  <span class="d-sm-inline d-none">Hi, {{ Auth::guard('admin')->user()->nama_admin }}</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3 text-center">Tambah Siswa</h6>
+              </div>
+            </div>
+            <div class="card-body p-4">
+                <form action="{{ route('store.siswa') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
+                    <div class="my-1">
+                        <label for="">NIS</label>
+                        <input type="number" class="form-control bg-light rounded border px-3 fw-bold" name="nis">
+                    </div>
+                    @error('nis')
+                    <div class="alert alert-danger alert-dismissible text-white my-2">
+                        <div class="text-sm d-flex justify-content-start align-items-center">
+                            <i class="material-icons me-2" style="font-size: 26px;">cancel</i>
+                            <strong class="me-1">NIS tidak boleh kosong atau sama!</strong>
+                        </div>
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @enderror
+                    <div class="my-1">
+                        <label for="">Nama Siswa</label>
+                        <input type="text" class="form-control bg-light rounded border px-3 fw-bold" name="nama_siswa">
+                    </div>
+                    @error('nama_siswa')
+                    <div class="alert alert-danger alert-dismissible text-white my-2">
+                        <div class="text-sm d-flex justify-content-start align-items-center">
+                            <i class="material-icons me-2" style="font-size: 26px;">cancel</i>
+                            <strong class="me-1">Nama Siswa tidak boleh kosong!</strong>
+                        </div>
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @enderror
+                    <div class="my-1">
+                        <label for="">Tanggal Lahir</label>
+                        <input type="date" class="form-control bg-light rounded border px-3 fw-bold" name="tgl_lahir">
+                    </div>
+                    @error('tgl_lahir')
+                    <div class="alert alert-danger alert-dismissible text-white my-2">
+                        <div class="text-sm d-flex justify-content-start align-items-center">
+                            <i class="material-icons me-2" style="font-size: 26px;">cancel</i>
+                            <strong class="me-1">Tanggal lahir tidak boleh kosong!</strong>
+                        </div>
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @enderror
+                    <div class="my-1">
+                        <label for="">Kelas</label>
+                        <input type="text" class="form-control bg-light rounded border px-3" name="kelas">
+                    </div>
+                    @error('kelas')
+                    <div class="alert alert-danger alert-dismissible text-white my-2">
+                        <div class="text-sm d-flex justify-content-start align-items-center">
+                            <i class="material-icons me-2" style="font-size: 26px;">cancel</i>
+                            <strong class="me-1">Kelas tidak boleh kosong!</strong>
+                        </div>
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @enderror
+                    <div class="my-1">
+                        <label for="">Jenis Kelamin</label>
+                        <select name="jenis_kelamin" class="form-control bg-light rounded border px-3">
+                            <option selected disabled>PILIH JENIS KELAMIN</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                        </select>
+                    </div>
+                    @error('jenis_kelamin')
+                    <div class="alert alert-danger alert-dismissible text-white my-2">
+                        <div class="text-sm d-flex justify-content-start align-items-center">
+                            <i class="material-icons me-2" style="font-size: 26px;">cancel</i>
+                            <strong class="me-1">Jenis Kelamin tidak boleh kosong!</strong>
+                        </div>
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @enderror
+                    <div class="my-1">
+                        <label for="">Alamat</label>
+                        <textarea name="alamat" class="form-control bg-light rounded border px-3" cols="30" rows="3"></textarea>
+                    </div>
+                    @error('alamat')
+                    <div class="alert alert-danger alert-dismissible text-white my-2">
+                        <div class="text-sm d-flex justify-content-start align-items-center">
+                            <i class="material-icons me-2" style="font-size: 26px;">cancel</i>
+                            <strong class="me-1">Alamat tidak boleh kosong!</strong>
+                        </div>
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @enderror
+                    <div class="my-1">
+                        <label for="">Agama</label>
+                        <select name="agama" class="form-control bg-light rounded border px-3">
+                            <option selected disabled>PILIH AGAMA</option>
+                            <option value="ISLAM">ISLAM</option>
+                            <option value="KRISTEN">KRISTEN</option>
+                            <option value="HINDU">HINDU</option>
+                            <option value="BUDHA">BUDHA</option>
+                            <option value="KONGHUCU">KONGHUCU</option>
+                        </select>
+                    </div>
+                    @error('agama')
+                    <div class="alert alert-danger alert-dismissible text-white my-2">
+                        <div class="text-sm d-flex justify-content-start align-items-center">
+                            <i class="material-icons me-2" style="font-size: 26px;">cancel</i>
+                            <strong class="me-1">Agama tidak boleh kosong!</strong>
+                        </div>
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @enderror
+                    <div class="d-flex justify-content-end mt-3">
+                        <button type="submit"class="btn bg-gradient-success mt-3 px-5" onclick="return confirm('Tambah Siswa?')">Tambah Siswa</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+@endsection
