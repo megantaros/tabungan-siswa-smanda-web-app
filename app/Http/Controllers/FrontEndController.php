@@ -12,9 +12,7 @@ class FrontEndController extends Controller
 {
     //
     public function login() {
-        $data = Admin::where('id_admin', 1)->first();
-
-        return view('login', compact('data'));
+        return view('login');
     }
     public function dashboard(Request $request) {
         $total_admin = Admin::where('username', 'admin')->count();

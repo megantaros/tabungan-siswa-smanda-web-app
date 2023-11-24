@@ -22,8 +22,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container-fluid bg-gradient-light min-vh-100 d-flex justify-content-center align-items-center p-5">
-        <div data-aos="fade-up" class="row w-75 hadow-lg overflow-hidden" style="border-radius: 12px;">
+    <div class="container-fluid bg-gradient-light min-vh-100 d-flex justify-content-center align-items-center">
+        <div data-aos="fade-up" class="row w-lg-75 w-100 hadow-lg overflow-hidden" style="border-radius: 12px;">
             <div class="col-lg-6 col-12 bg-gradient-primary py-5 p-0">
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-lg-12 text-center">
@@ -50,7 +50,7 @@
                     @endif
                     <div class="form-group">
                         <label class="mb-1">Email</label>
-                        <input type="text" class="form-control form-control-sm rounded bg-light px-3 py-2 text-dark font-weight-bold" placeholder="Username" name="email" style="font-family: 'Poppins', sans-serif;">
+                        <input type="text" class="form-control form-control-sm rounded bg-light px-3 py-2 text-dark font-weight-bold" placeholder="Email" name="email" style="font-family: 'Poppins', sans-serif;">
                         <label class="mb-1">Password</label>
                         <input type="password" class="form-control form-control-sm rounded bg-light px-3 py-2 text-dark font-weight-bold" placeholder="Password" name="password" style="font-family: 'Poppins', sans-serif;">
                     </div>
