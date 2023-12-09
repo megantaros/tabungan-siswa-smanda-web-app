@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class SiswaController extends Controller
 {
     //
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $rules = [
             'nis' => 'required|unique:siswa',
             'nama_siswa' => 'required',
@@ -24,15 +25,21 @@ class SiswaController extends Controller
         $data->update([
             'password' => bcrypt('siswa'),
         ]);
-        $tabungan = Tabungan::create([
+        Tabungan::create([
             'id_siswa' => $data->id_siswa,
             'saldo' => 0,
         ]);
-        if($tabungan) {
+        $transaksi = Transaksi::create([
+            'id_siswa' => $data->id_siswa,
+            'keterangan' => 'AKTIF',
+            'nominal' => 0,
+        ]);
+        if ($transaksi) {
             return redirect()->route('admin.get.siswa', ['id_siswa' => $data->id_siswa])->with('success', 'Data siswa berhasil ditambahkan');
         }
     }
-    public function update(Request $request, $id_siswa) {
+    public function update(Request $request, $id_siswa)
+    {
         $this->validate($request, [
             'nis' => 'required',
             'nama_siswa' => 'required',
@@ -44,11 +51,12 @@ class SiswaController extends Controller
         ]);
         $data = Siswa::find($id_siswa);
         $data->update($request->all());
-        if($data) {
+        if ($data) {
             return redirect()->route('admin.get.siswa', ['id_siswa' => $id_siswa])->with('success', 'Data siswa berhasil diubah');
         }
     }
-    public function delete($id_siswa) {
+    public function delete($id_siswa)
+    {
         $tabungan = Tabungan::where('id_siswa', $id_siswa)->first();
         $tabungan->update([
             'saldo' => 0,

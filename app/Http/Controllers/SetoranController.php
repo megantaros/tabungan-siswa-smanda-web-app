@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class SetoranController extends Controller
 {
     //
-    public function store(Request $request, $id_siswa) {
+    public function store(Request $request, $id_siswa)
+    {
         $request->validate([
             'id_tabungan' => 'required',
             'jumlah_setoran' => 'required',
@@ -25,8 +26,12 @@ class SetoranController extends Controller
             'nominal' => $request->jumlah_setoran,
             'keterangan' => 'SETORAN',
         ]);
-        if($transaksi) {
+        $tabungan = Tabungan::where('id_tabungan', $request->id_tabungan)->first();
+        $tabungan->update([
+            'saldo' => $tabungan->saldo + $request->jumlah_setoran,
+        ]);
+        if ($transaksi) {
             return redirect()->route('get.transaksi', ['id_transaksi' => $transaksi->id_transaksi])->with('success', 'Transaksi berhasil dilakukan');
-        }  
+        }
     }
 }
